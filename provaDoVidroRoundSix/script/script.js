@@ -21,16 +21,20 @@ const bt2 = document.getElementsByTagName('button')[2]
 
 // RESETE O GAME:
 function reseteGame() {
-    
+    rodada = 0
     content1.style.display = 'block' // esconde a primeira div chamada de content1 onde tem a apresentação com o botão jogar.
     content2.style.display = 'none' // mostra a segunda div chamada de content2 onde rola o jogo.
 
+    // Acrescentando todos os componentes do jogo novamente
     content2.innerHTML = ''
     content2.appendChild(contentRodada)
     content2.appendChild(h2)
     content2.appendChild(h3)
     content2.appendChild(bt1)
     content2.appendChild(bt2)
+
+    // Reescrevendo span contentRodada
+    contentRodada.innerHTML = 'Rodada: 0/5'
 }
 
 //  CRIANDO ELEMENTO DO BOTAO:
@@ -54,17 +58,19 @@ function botaoJogarNovamente() {
 
 // GAME:
 function jogo() {
-    contentRodada.innerHTML = `Rodada: ${rodada}/5` // mostra a rodada que o jogador esta.
+    
+    
 
-    rodada += 1
+    
     let vidroQuebra = Math.floor(Math.random() * 2) + 1 // vai gerar um numero aleatorio ou seja um vidro vai quebrar de forma aleatoria seja o vidro 1 ou o 2.
 
     if (escolhaDoJogador == vidroQuebra) { // checa se a escolha do jogador e o mesmo vidro que vai quebrar.
         encerrarJogo('derrota')
-    }
-
-    if (rodada > 5) { // chaca se ja deu o numero de rodadas certo.
+    } else if (rodada >= 5) { // checa se ja deu o numero de rodadas certo.
         encerrarJogo('vitoria')
+    } else {
+        rodada += 1
+        contentRodada.innerHTML = `Rodada: ${rodada}/5` // mostra a rodada que o jogador esta.
     }
 }
 
