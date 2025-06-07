@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+main {
+    background-color: darkgrey;
+    width: 90vw;
+    min-width: 200px;
+    max-width: 600px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 5px;
+    border:black 5px solid;
+    line-height: 1.5em;
+    list-style-position: inside;
+}
+
+#Operacoes {
+    background-color: dimgray;
+    padding: 10px;
+    border-radius: 3px;
+}

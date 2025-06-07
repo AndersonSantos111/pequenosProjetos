@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratica006</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+
+    <header>
+        <h1>Menu de Operações Simples</h1>
+    </header>
+
+    <main>
+        <section id="Operacoes">
+            <div id="menuOpcoes">
+                <h2>Escolha uma opção: </h2>
+                <ol type="1">
+                    <li> <label for="parImpa">  Par ou ímpar </label>
+                    <input type="radio" name="opcao" id="parImpa" checked>
+                    
+                    <li> <label for="tabuada"> Tabuada </label>
+                    <input type="radio" name="opcao" id="tabuada">
+                    
+                    <li> <label for="contar">   Contar </label>
+                    <input type="radio" name="opcao" id="contar">
+                    
+                    <li> <label for="positivoNegativo"> Verificar positivo ou negativo </label>
+                    <input type="radio" name="opcao" id="positivoNegativo">
+                <ol>
+                
+                <input type="button" value="Sair" id="btnSair">
+                <input type="button" value="Confirmar" id="btnConfirmar" onclick="confirmar()">
+            </div>
+
+
+            <section class="Operacoes" id="section_ParImpar"></section>
+            <section class="Operacoes" id="section_Tabuada"></section>
+            <section class="Operacoes" id="section_Contar"></section>
+            <section class="Operacoes" id="section_PositivoNegativo"></section>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
