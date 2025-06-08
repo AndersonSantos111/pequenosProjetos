@@ -4,8 +4,6 @@
 // positivoNegativo
 
 
-// Inputs do type(tipo) raido:
-
 
 // Inpust do type(tipo) button(botão):
 const btnSair = document.getElementById('btnSair');
@@ -26,25 +24,52 @@ const section_PositivoNegativo = document.getElementById('section_PositivoNegati
     com um laço de repetição eu vou navegar entre as seções e ver qual será a única seção a ser mostrada de acordo com o parâmetro escolha
 */
 
+function adicionarElementos(operacoes) {
+    const div = document.createElement('div')
+    div.style.background = 'blue'
+    div.innerHTML = 'pegando'
+    div.style.padding = '5px'
+
+    const input = document.createElement('input');
+    input.setAttribute('type', 'text');
+
+
+    
+    return input, div;
+}
+
 function ocultarSecao(escolha) {
-    const Operacoes = document.getElementsByName('operacoes')
-    Operacoes.style.color = 'blue'
-    Operacoes.innerHTML = 'ksksk'
-    console.log(Operacoes[1])
-    for (let c = 0; c <= escolha; c++) {
-        if (c == escolha) {
-            console.log(Operacoes[c])
-                console.log('mostrar' + c)
-        } else {
-            console.log('ocultar' + c);
+    const menuOpcao = document.getElementById('menuOpcoes');
+    const Operacoes = document.getElementsByClassName('operacoes');
+
+    console.clear()
+    menuOpcao.style.display = 'none'
+
+    for (let c = 0; c <= Operacoes.length; c++) {
+        if (c === escolha) {
+
+
+            console.log(`mostrar ${c}:`);
+            console.log(Operacoes[c]);
+
+
+            Operacoes[c].style.display = 'block';
+            Operacoes[c].appendChild(adicionarElementos(Operacoes[c]));
+        } else if (c < 4) {
+
+            console.log(`ocultar ${c}:`);
+
+            Operacoes[c].style.display = 'none';
         }
     }
 }
 
 
 
+
+
 function montar(escolha) {
-     ocultarSecao(escolha);
+    ocultarSecao(escolha);
 }
 
 /*
@@ -59,7 +84,7 @@ function confirmar() {
         if (opcao[c].checked) {
             alert('funciona');
             escolha = c;
-            c = 4;
+            c = 3;
         }
     }
     
