@@ -23,12 +23,33 @@ const section_Contar = document.getElementById('section_Contar');
 const section_PositivoNegativo = document.getElementById('section_PositivoNegativo');
 
 /*
-    após apertar o botão confirmar ele vai chamar a função montar enviando um parámetro de acordo com sua marção na tela de escolha, a função montar vai sempre montar nossas seções de acordo com a nossa escolha
+    com um laço de repetição eu vou navegar entre as seções e ver qual será a única seção a ser mostrada de acordo com o parâmetro escolha
 */
 
-function montar(escolha) {
-    alert(escolha);
+function ocultarSecao(escolha) {
+    const Operacoes = document.getElementsByName('operacoes')
+    Operacoes.style.color = 'blue'
+    Operacoes.innerHTML = 'ksksk'
+    console.log(Operacoes[1])
+    for (let c = 0; c <= escolha; c++) {
+        if (c == escolha) {
+            console.log(Operacoes[c])
+                console.log('mostrar' + c)
+        } else {
+            console.log('ocultar' + c);
+        }
+    }
 }
+
+
+
+function montar(escolha) {
+     ocultarSecao(escolha);
+}
+
+/*
+    após apertar o botão confirmar ele vai chamar a função montar enviando um parámetro de acordo com sua marção na tela de escolha, a função montar vai sempre montar nossas seções de acordo com a nossa escolha
+*/
 
 function confirmar() {
     const opcao = document.getElementsByName('opcao')
@@ -36,7 +57,7 @@ function confirmar() {
 
     for (let c = 0; c <= 3; c++) {
         if (opcao[c].checked) {
-            alert('checado');
+            alert('funciona');
             escolha = c;
             c = 4;
         }
