@@ -80,7 +80,7 @@ function confirmar() {
     const opcao = document.getElementsByName('opcao')
     let escolha = 0;
 
-    for (let c = 0; c <= 3; c++) {
+    for (let c = 0; c < opcao.length; c++) {
         if (opcao[c].checked) {
             alert('funciona');
             escolha = c;
