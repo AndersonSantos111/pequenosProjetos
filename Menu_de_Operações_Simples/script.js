@@ -15,16 +15,12 @@ const btnConfirmar = document.getElementById('btnConfirmar');
 // section_Contar
 // section_PositivoNegativo
 
-const section_ParImpar = document.getElementById('section_ParImpar');
-const section_Tabuada = document.getElementById('section_Tabuada');
-const section_Contar = document.getElementById('section_Contar');
-const section_PositivoNegativo = document.getElementById('section_PositivoNegativo');
 
 /*
     com um laço de repetição eu vou navegar entre as seções e ver qual será a única seção a ser mostrada de acordo com o parâmetro escolha
 */
 
-function adicionarElementos(operacoes) {
+function adicionarElementos(e) {
     const div = document.createElement('div')
     div.style.background = 'blue'
     div.innerHTML = 'pegando'
@@ -33,9 +29,11 @@ function adicionarElementos(operacoes) {
     const input = document.createElement('input');
     input.setAttribute('type', 'text');
 
+    const buttonSair = document.createElement('button')
 
     
-    return input, div;
+    
+    return {input, div};
 }
 
 function ocultarSecao(escolha) {
@@ -54,7 +52,11 @@ function ocultarSecao(escolha) {
 
 
             Operacoes[c].style.display = 'block';
-            Operacoes[c].appendChild(adicionarElementos(Operacoes[c]));
+            
+            const {input, div} = adicionarElementos()
+            Operacoes[c].appendChild(input)
+            Operacoes[c].appendChild(div);
+
         } else if (c < 4) {
 
             console.log(`ocultar ${c}:`);
