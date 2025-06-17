@@ -15,28 +15,48 @@ const btnConfirmar = document.getElementById('btnConfirmar');
 // section_Contar
 // section_PositivoNegativo
 
+function parImpar() {
+    alert('parimpa')
+}
+
+function tabuada() {
+    alert('TABUADA')
+}
+
+function contador() {
+    alert('contador')
+}
+
+function positivoNegativo() {
+    alert('positivoNegativo')
+}
+
 
 /*
     com um laço de repetição eu vou navegar entre as seções e ver qual será a única seção a ser mostrada de acordo com o parâmetro escolha
 */
 
-function adicionarElementos(e) {
+function adicionarElementos(escolha) {
     const div = document.createElement('div')
     div.style.background = 'blue'
     div.innerHTML = 'pegando'
     div.style.padding = '5px'
 
     const input = document.createElement('input');
-    input.setAttribute('type', 'text');
+    input.setAttribute('type', 'number');
+    input.setAttribute('id', 'caixaDeTexto')
+    input.setAttribute('placeholder', 'Digite um número')
 
     const buttonSair = document.createElement('button')
-
+    buttonSair.innerText = 'Comfirmar'
+    buttonSair.setAttribute('onclick', 'montar()')
+    buttonSair.addEventListener('click', () => montar(escolha))
+   
     
-    
-    return {input, div};
+    return {input, div, buttonSair};
 }
 
-function ocultarSecao(escolha) {
+function ocultarEcriarElemnto (escolha) {
     const menuOpcao = document.getElementById('menuOpcoes');
     const Operacoes = document.getElementsByClassName('operacoes');
 
@@ -53,9 +73,12 @@ function ocultarSecao(escolha) {
 
             Operacoes[c].style.display = 'block';
             
-            const {input, div} = adicionarElementos()
-            Operacoes[c].appendChild(input)
+            Operacoes[c].innerHTML += `Digite um número: <br>`
+            const {input, div, buttonSair} = adicionarElementos(escolha)
+            Operacoes[c].appendChild(input);
             Operacoes[c].appendChild(div);
+            Operacoes[c].appendChild(buttonSair);
+        
 
         } else if (c < 4) {
 
@@ -71,7 +94,24 @@ function ocultarSecao(escolha) {
 
 
 function montar(escolha) {
-    ocultarSecao(escolha);
+
+    alert('montar')
+    console.log('motar function funcionado')
+
+    switch (escolha) {
+        case 0:
+            parImpar()
+            break
+        case 1:
+            tabuada()
+            break
+        case 2:
+            contador()
+            break
+        case 3:
+            positivoNegativo()
+            break
+    }
 }
 
 /*
@@ -81,16 +121,15 @@ function montar(escolha) {
 function confirmar() {
     const opcao = document.getElementsByName('opcao')
     let escolha = 0;
-
+    
     for (let c = 0; c < opcao.length; c++) {
         if (opcao[c].checked) {
-            alert('funciona');
             escolha = c;
             c = 3;
         }
     }
     
     
-    montar(escolha);
+    ocultarEcriarElemnto(escolha);
     
 }
