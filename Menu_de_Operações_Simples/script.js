@@ -3,12 +3,6 @@
 // contar
 // positivoNegativo
 
-
-
-// Inpust do type(tipo) button(botão):
-const btnSair = document.getElementById('btnSair');
-const btnConfirmar = document.getElementById('btnConfirmar');
-
 // Sections:
 // section_ParImpar
 // section_Tabuada
@@ -16,75 +10,77 @@ const btnConfirmar = document.getElementById('btnConfirmar');
 // section_PositivoNegativo
 
 function parImpar() {
-    alert('parimpa')
+    alert('parimpa');
 }
 
 function tabuada() {
-    alert('TABUADA')
+    alert('TABUADA');
 }
 
 function contador() {
-    alert('contador')
+    alert('contador');
 }
 
 function positivoNegativo() {
-    alert('positivoNegativo')
+    alert('positivoNegativo');
 }
 
 
-/*
-    com um laço de repetição eu vou navegar entre as seções e ver qual será a única seção a ser mostrada de acordo com o parâmetro escolha
-*/
 
-function adicionarElementos(escolha) {
-    const div = document.createElement('div')
-    div.style.background = 'blue'
-    div.innerHTML = 'pegando'
-    div.style.padding = '5px'
 
-    const input = document.createElement('input');
+function criarElementos(escolha) {
+    const div = document.createElement('div'); // cria uma div.
+    div.style.background = 'blue';
+    div.innerHTML = 'pegando';
+    div.style.padding = '5px';
+
+    const input = document.createElement('input'); // cria um input do tipo number.
     input.setAttribute('type', 'number');
-    input.setAttribute('id', 'caixaDeTexto')
-    input.setAttribute('placeholder', 'Digite um número')
+    input.setAttribute('id', 'caixaDeTexto');
+    input.setAttribute('placeholder', 'Digite um número');
 
-    const buttonSair = document.createElement('button')
-    buttonSair.innerText = 'Comfirmar'
-    buttonSair.setAttribute('onclick', 'montar()')
-    buttonSair.addEventListener('click', () => montar(escolha))
+    const btnComfirmar = document.createElement('button'); // cria um botão confirmar.
+    btnComfirmar.innerText = 'Comfirmar';
+    btnComfirmar.addEventListener('click', () => montar(escolha));
+
+    const btnVoltar = document.createElement('button'); // cria um botão pra voltar a escolha.
+    btnVoltar.innerText = 'Voltar';
+    btnVoltar.addEventListener('click', () => ocultarEadicionar('menu'))
+
    
     
-    return {input, div, buttonSair};
+    return [input, div, btnComfirmar, btnVoltar];
 }
 
-function ocultarEcriarElemnto (escolha) {
+function ocultarEadicionar (escolha) {
     const menuOpcao = document.getElementById('menuOpcoes');
     const Operacoes = document.getElementsByClassName('operacoes');
+    
+/*
+    com um laço de repetição eu vou navegar entre as seções e ver qual será a única seção a ser mostrada de acordo com o parâmetro escolha.
+*/
 
-    console.clear()
-    menuOpcao.style.display = 'none'
+    for (let c = 0; c < Operacoes.length; c++) {
 
-    for (let c = 0; c <= Operacoes.length; c++) {
-        if (c === escolha) {
+        if (escolha == 'menu') {
+            menuOpcao.style.display = 'block';
+            Operacoes[c].style.display = 'none';
+            Operacoes[c].innerText = '';
 
-
-            console.log(`mostrar ${c}:`);
-            console.log(Operacoes[c]);
-
+        } else if (c === escolha) {
+            menuOpcao.style.display = 'none'; // mostra apenas a seção escolhida.
 
             Operacoes[c].style.display = 'block';
-            
-            Operacoes[c].innerHTML += `Digite um número: <br>`
-            const {input, div, buttonSair} = adicionarElementos(escolha)
-            Operacoes[c].appendChild(input);
-            Operacoes[c].appendChild(div);
-            Operacoes[c].appendChild(buttonSair);
-        
+            Operacoes[c].innerHTML += `Digite um número: <br>`;
 
-        } else if (c < 4) {
+            const elementos = criarElementos(escolha);
+            for (let i = 0; i < elementos.length; i++) {
+                Operacoes[c].appendChild(elementos[i]);
+            }
 
-            console.log(`ocultar ${c}:`);
-
+        } else {
             Operacoes[c].style.display = 'none';
+            
         }
     }
 }
@@ -93,32 +89,33 @@ function ocultarEcriarElemnto (escolha) {
 
 
 
+
 function montar(escolha) {
 
-    alert('montar')
-    console.log('motar function funcionado')
+    alert('montar');
+    console.log('montar function funcionado');
 
     switch (escolha) {
         case 0:
-            parImpar()
-            break
+            parImpar();
+            break;
         case 1:
-            tabuada()
-            break
+            tabuada();
+            break;
         case 2:
-            contador()
-            break
+            contador();
+            break;
         case 3:
-            positivoNegativo()
-            break
+            positivoNegativo();
+            break;
     }
 }
 
 /*
-    após apertar o botão confirmar ele vai chamar a função montar enviando um parámetro de acordo com sua marção na tela de escolha, a função montar vai sempre montar nossas seções de acordo com a nossa escolha
+    após apertar o botão confirmar ele vai chamar a função iniciar enviando um parámetro de acordo com sua marção na tela de escolha. 
 */
 
-function confirmar() {
+function    iniciar() {
     const opcao = document.getElementsByName('opcao')
     let escolha = 0;
     
@@ -129,7 +126,5 @@ function confirmar() {
         }
     }
     
-    
-    ocultarEcriarElemnto(escolha);
-    
+    ocultarEadicionar(escolha);
 }
