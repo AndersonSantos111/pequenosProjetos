@@ -5,6 +5,10 @@
     padding: 0px;
 }
 
+body {
+    
+}
+
 main {
     background-color: darkgrey;
     width: 90vw;
@@ -15,7 +19,7 @@ main {
     border-radius: 5px;
     border:black 5px solid;
     line-height: 1.5em;
-    list-style-position: inside;
+    list-style-position: inside;height: 100vh;
 }
 
 #base {
@@ -33,5 +37,11 @@ main {
     padding: 5px;
     border: none;
     border-radius: 4px;
-    
+}
+
+footer {
+    background-color: rgb(31, 31, 31);
+    color: white;
+    text-align: center;
+    padding: 10px;
 }
