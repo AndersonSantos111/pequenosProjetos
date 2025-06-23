@@ -6,26 +6,33 @@
 }
 
 body {
-    
+    background-image: url('imagens/imagem\ de\ fundo.png');
+    background-color: black;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+header > h1 {
+    text-align: center;
 }
 
 main {
-    background-color: darkgrey;
-    width: 90vw;
+    /* min-height: ; */
+    height: 91vh;
     min-width: 200px;
     max-width: 600px;
     margin: auto;
-    padding: 10px;
-    border-radius: 5px;
-    border:black 5px solid;
     line-height: 1.5em;
-    list-style-position: inside;height: 100vh;
+    list-style-position: inside;
+    
 }
 
 #base {
-    background-color: dimgray;
+    background-color: rgba(0, 0, 0, 0.719);
+    color: #ffffffd5;
     padding: 10px;
     border-radius: 3px;
+    border-radius: 5px;
 }
 
 .operacoes {
