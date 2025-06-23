@@ -96,13 +96,12 @@ function validarNegativos(valor, div) {
 function criarElementos(escolha) {
     const div = document.createElement('div'); // cria uma div.
     div.setAttribute('id', `bnt${escolha}`);
-    div.style.background = 'gray';
     div.innerHTML = '=Resultado=';
     div.style.padding = '5px';
 
     const input = document.createElement('input'); // cria um input do tipo number.
     input.setAttribute('type', 'number');
-    input.setAttribute('id', 'caixaDeTexto');
+    input.setAttribute('id', `caixaDeTexto`);
     input.setAttribute('placeholder', 'Digite um número');
     input.style.width = '120px'
 
@@ -124,12 +123,12 @@ function ocultarEadicionar (escolha) {
 /* com um laço de repetição eu vou navegar entre as seções e ver qual será a única seção a ser mostrada de acordo com o parâmetro escolha. */
 
     for (let c = 0; c < Operacoes.length; c++) {
-
+        
+        
         if (escolha == 'menu') {
             menuOpcao.style.display = 'block';
             Operacoes[c].style.display = 'none';
-            Operacoes[c].innerText = '';
-
+            Operacoes[c].innerText = ''
         } else if (c === escolha) {
             menuOpcao.style.display = 'none'; // mostra apenas a seção escolhida.
 

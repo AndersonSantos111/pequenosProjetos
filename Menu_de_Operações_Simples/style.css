@@ -1,8 +1,19 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: 'vanilla';
+    src: url('fonts/Vanilla\ Caramel.otf') format('opentype');
+    font-weight: bolder;
+}
+
 * {
     margin: 0px;
     padding: 0px;
+}
+
+
+:root {
+    --fontTitulos: 'vanilla';
 }
 
 body {
@@ -13,7 +24,9 @@ body {
 }
 
 header > h1 {
+    font-family: var(--fontTitulos);
     text-align: center;
+    font-size: 2.4em;
 }
 
 main {
@@ -28,7 +41,7 @@ main {
 }
 
 #base {
-    background-color: rgba(0, 0, 0, 0.719);
+    background-color: rgba(0, 0, 0, 0.897);
     color: #ffffffd5;
     padding: 10px;
     border-radius: 3px;
@@ -39,11 +52,21 @@ main {
     display: none;
 }
 
-.btn {
-    background-color: rgb(148, 148, 148);
+.operacoes > div {
+    background-color: rgba(59, 59, 59, 0.267);
+}
+
+input {
+    background-color: rgba(0, 0, 0, 0.342);
+    color: #fff;
+}
+
+button {
+    background-color: rgba(141, 141, 141, 0.705);
     padding: 5px;
     border: none;
     border-radius: 4px;
+    margin: 10px 10px 5px 0px;
 }
 
 footer {
