@@ -8,6 +8,7 @@ function gerarNumro () {
     return numero;
 }
 numero = gerarNumro();
+//console.log(numero);
 
 function Rodadas () {
     const divRodada = document.querySelector('#rodada');
@@ -57,36 +58,31 @@ function verificarAcerto (numero) {
     if (numb > 0 && numb <= 10) {
         if (chances > 0) {
             if (numb == numero) {
-                console.log('acertou');
                 alert('acertou miseravi!');
-                console.log('chaces restantes: ' + chances);
-                rodadas--;
                 pontuacao(true);
+                rodadas--;
                 Rodadas();
-                chances = 0;
+                chances = 'reinicio';
             } else {
-                console.log('errou');
                 chances--;
-                console.log('chaces restantes: ' + chances);
                 MaiorMenor(numb);
-                pontuacao(false);
             }
-        } else {
-            console.log('chaces restantes: ' + chances);
         }
     } else {
         alert('Digite apenas números de 1 a 10');
     }
 }
 
-console.log(`chaces: ${chances}`);
-
 function confirmar () {
-    console.log(`numero gerado: ${numero}`);
-
     verificarAcerto(numero);
+    
+    if (chances == 'reinicio') {
+        chances = 3;
+        numero = gerarNumro();
+        Rodadas();
+    }
+    
     Chances();
-  
 
     if (chances == 0) {
         chances = 3;
@@ -106,6 +102,4 @@ function confirmar () {
         pontuacao(false);
         alert('As rodadas acabaram. Serão resetadas junto com sua pontuação.');
     }
-
-    console.log('__________________________________________');
 }
