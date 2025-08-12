@@ -56,6 +56,9 @@ main h1 {
 
 main #player {
     background-color: rgba(0, 0, 0, 0.623);
+    font-family: var(--fontTitulo2);
+    font-size: 10px;
+    color: #d8bda9;
 }
 
 main #secaoPrincipal {
@@ -67,7 +70,27 @@ main #secaoPrincipal {
     width: 120px;
 }
 
-section#player {
+button {
+    background-color: #c7661c;
+    color: rgba(255, 255, 255, 0.678);
+    padding: 2px;
+    border-radius: 5px;
+    border-color: #3b1a01;
     font-family: var(--fontTitulo2);
-    font-size: 10px;
+    font-size: 6px;
+}
+
+input#Num {
+    background-color: #c7661c;
+    color: rgba(255, 255, 255, 0.678);
+    border-color: #3b1a01;
+    
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.678);
+}
+
+section#secaoPrincipal > p {
+    color: #d8bda9;
 }
