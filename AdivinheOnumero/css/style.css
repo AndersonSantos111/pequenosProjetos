@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Bitwa';
+    font-weight: bold;
+    src: url('../fontes/bitween_10/BITWA2___.TTF');
+}
+
+:root {
+    --fontTitulo1: 'Bitwa';
+}
+
+body {
+    background: rgb(157, 245, 245) url(../midia/imagens/img_parque.png) bottom center no-repeat fixed;
+    background-size: cover;
+    height: 100vh;
+    
+}
+
+header > h1 {
+    font-family: var(--fontTitulo1);
+    text-align: center;
+    padding: 30px 0px 10px 0px;
+}
+
+main {
+    background-color: rgba(0, 0, 0, 0.836);
+    color: #fff;
+    min-width: 240px;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 4px;
+    position: relative;
+    top: 25%;
+}
+
+main #player {
+    background-color: rgba(0, 0, 0, 0.623);
+}
+
+main #secaoPrincipal {
+    line-height: 30px;
+    text-align: center;
+}
+
+#Num {
+    width: 120px;
+}
