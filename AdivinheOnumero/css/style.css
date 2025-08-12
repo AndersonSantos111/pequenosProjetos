@@ -73,7 +73,7 @@ main #secaoPrincipal {
 button {
     background-color: #c7661c;
     color: rgba(255, 255, 255, 0.678);
-    padding: 2px;
+    padding: 9px;
     border-radius: 5px;
     border-color: #3b1a01;
     font-family: var(--fontTitulo2);
