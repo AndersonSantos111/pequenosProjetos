@@ -5,4 +5,4 @@
 
 <a href="https://andersonsantos111.github.io/pequenosProjetos/Menu_de_Operações_Simples/">Desafio 02</a>
 
-<a herf="https://andersonsantos111.github.io/pequenosProjetos/AdivinheOnumero">Desafio 03</a>
+<a href="https://andersonsantos111.github.io/pequenosProjetos/AdivinheOnumero">Desafio 03</a>
